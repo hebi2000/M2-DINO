@@ -1,0 +1,22 @@
+{
+  "num_classes": 6,
+  "class_names": [
+    "Impervious surfaces",
+    "Building",
+    "Low vegetation",
+    "Tree",
+    "Car",
+    "Clutter/background"
+  ],
+  "color_mapping": [
+    [255, 255, 255],
+    [0, 0, 255],
+    [0, 255, 255],
+    [0, 255, 0],
+    [255, 255, 0],
+    [255, 0, 0]
+  ],
+  "aux_inputs": [
+    "dsm"
+  ]
+}
