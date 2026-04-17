@@ -22,8 +22,7 @@ This repository provides a **lightweight, multi-modal, and high-performance** se
 
 ## 🏗️ Architecture Overview
 
-![Geo-Gated Net Architecture](https://via.placeholder.com/800x400.png?text=Insert+Your+Architecture+Figure+Here)
-*(Please upload your architecture diagram and replace the link above)*
+![Geo-Gated Net Architecture](resouce/allover.png)
 
 Our model adopts a **Dual-Stream + Interactive** design paradigm:
 1.  **Optical Stream (Main)**: Powered by DINOv3 (ViT-Large). Processes RGB images.
@@ -31,15 +30,29 @@ Our model adopts a **Dual-Stream + Interactive** design paradigm:
 3.  **Deep Interaction**: H-M3E Adapters are inserted into ViT layers 18, 20, and 22 for token-level multimodal mixing.
 4.  **Decoding**: An asymmetric FPN combined with a SimpleUperHead fuses multi-scale features (P4, P8, P16, P32) for final pixel-level classification.
 
+## 📊 Comparison Results
+
+Here are the comparison results showing our method's effectiveness:
+
+### WHU-OPT-SAR Dataset
+![WHU OPT-SAR Comparison](resouce/whu-opt-sar.png)
+
+### Low Shot Performance Comparison
+![Low Shot Performance Comparison](resouce/对比图-whu-low.png)
+
+### DW12C Low Shot Performance
+![DW12C Low Shot Performance](resouce/对比图-dw12c-low.png)
+
 ---
 
-## 📈 Main Results
+## 📈 Ablation Study Results
 
-| Model Architecture | Backbone | Params (Trainable) | mIoU (%) | OA (%) | Ditch (IoU) | Road (IoU) |
-| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
-| Baseline (FPN) | DINOv3-L | ~304 M | 29.85 | 84.39 | 14.18 | 57.72 |
-| FPN + H-M3E | DINOv3-L | ~41.8 M | 42.20 | 92.04 | 29.84 | 55.56 |
-| **Geo-Gated Net (Ours)**| **DINOv3-L** | **~54.1 M** | **43.88** | **93.18** | **35.72** 🚀| **58.99** 🚀|
+| Model      | Baseline | H-M3E | SGP | TASC | OA (%) | Kappa (%) | mIoU (%) |
+|------------|----------|-------|-----|------|--------|-----------|----------|
+| #1 (Baseline) | ✓        |       |     |      | 77.19  | 67.21     | 44.41    |
+| #2          | ✓        | ✓     |     |      | 82.29  | 75.73     | 54.80    |
+| #3          | ✓        | ✓     | ✓   |      | 83.72  | 76.82     | 54.80    |
+| #4 (M2-DINO) | ✓        | ✓     | ✓   | ✓    | 84.26  | 77.01     | 57.50    |
 
 ---
 
